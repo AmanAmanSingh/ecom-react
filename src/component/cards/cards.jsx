@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
 import loader from "../../assets/loader-gif.gif";
 import { cartContext } from "../cart-context";
+import merchs from "../../mock-data/json-data";
 
 const Cards = () => {
-    const ClothesData = useFetch("http://fakestoreapi.com/products");
+    // const ClothesData = useFetch("http://fakestoreapi.com/products");
     // console.log(ClothesData);
+    const ClothesData = merchs;
+
     const cartItemContext = useContext(cartContext);
     // console.log(cartItemContext);
     const handleItemsCount = (user) => {
