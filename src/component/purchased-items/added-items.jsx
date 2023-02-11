@@ -25,7 +25,7 @@ const AddedItem = () => {
                                     <p> {item.title}</p>
                                     <summary> {item.description}</summary>
                                     <article> {item.category}</article>
-                                    <h4> Price: {item.price} <i>  Offer: 36% Off2 offers applied</i> </h4>
+                                    <h4> Price: {item.price} <i> Offer: 36% Off2 offers applied</i> </h4>
 
                                 </div>
                             </div>

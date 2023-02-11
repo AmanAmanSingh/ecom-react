@@ -10,7 +10,6 @@ const Cards = () => {
     // const ClothesData = useFetch("http://fakestoreapi.com/products");
     // console.log(ClothesData);
     const ClothesData = merchs;
-
     const cartItemContext = useContext(cartContext);
     // console.log(cartItemContext);
     const handleItemsCount = (user) => {

@@ -1,14 +1,16 @@
 import brandLogo from "../images/brand-logo.png"
 import style from "./header.css"
 import { Link } from "react-scroll";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { cartContext } from "../cart-context";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const Header = () => {
 
     const context = useContext(cartContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const Token = localStorage.getItem("authToken");
 
     const handleNavigate = (e) => {
         e.preventDefault();
@@ -49,12 +51,14 @@ const Header = () => {
                 </div>
                 <div className="login-icons">
                     <ul>
-                        <li>
-                            <Link to="/login" onClick={GoToLoginpage}><i className="fa fa-sign-in fa-lg" aria-hidden="true"></i> Login</Link>
-                        </li>
-                        <li>
-                            <Link to="" onClick={GoTosignUp}><i className="fa fa-registered" aria-hidden="true"></i>  Register</Link>
-                        </li>
+                        {!Token &&
+                            <li>
+                                <Link to="/login" onClick={GoToLoginpage}><i className="fa fa-sign-in fa-lg" aria-hidden="true"></i> Login</Link>
+                            </li>}
+                        {!Token &&
+                            <li>
+                                <Link to="" onClick={GoTosignUp}><i className="fa fa-registered" aria-hidden="true"></i>  Register</Link>
+                            </li>}
                         <li>
                             <Link to="cart-items" onClick={handleNavigate}> <i className="fa fa-shopping-cart" aria-hidden="true"></i>  Cart({context.cartCount.length})</Link>
                         </li>

@@ -15,7 +15,7 @@ const Login = () => {
             const userData = await axios("https://ecom-server-xrv0.onrender.com/login", {
                 method: "POST",
                 data: loginUser,
-            })
+            });
             localStorage.setItem("authToken", `Bearer ${userData.data.Token}`);
 
             setMsg("verifying...");
@@ -24,6 +24,7 @@ const Login = () => {
                 setMsg(null);
                 navigate("/");
             }, 1500)
+            console.log("login")
         } catch (e) {
             console.log(e)
             setMsg("Please Provide Valid Credentials")
